@@ -2,9 +2,15 @@ require 'minitest/autorun'
 require './lib/barcode_validator'
 
 class BarcodeValidatorTest < Minitest::Test
-  def test_it_works
+  def test_initializes_with_default_type
     bv = BarcodeValidator.new
 
-    assert bv
+    assert_equal 'ean', bv.type
+  end
+
+  def test_initializes_with_given_type
+    bv = BarcodeValidator.new('itf')
+
+    assert_equal 'itf', bv.type
   end
 end
