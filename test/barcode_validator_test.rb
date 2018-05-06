@@ -19,15 +19,15 @@ class BarcodeValidatorTest < Minitest::Test
     assert_raises(ArgumentError) { BarcodeValidator.new('fake') }
   end
   
-  def test_it_verifies_ean_barcode_number
+  def test_it_validates_ean_barcode_number
     bv = BarcodeValidator.new
 
-    assert_equal true, bv.verify('7987654321794')
+    assert_equal true, bv.valid?('7987654321794')
   end
   
-  def test_it_verifies_with_dashes
+  def test_it_validates_with_dashes
     bv = BarcodeValidator.new
 
-    assert_equal true, bv.verify('4-912345-123459')
+    assert_equal true, bv.valid?('4-912345-123459')
   end
 end

@@ -9,9 +9,10 @@ class BarcodeValidator
     end
   end
   
-  def verify(val)
+  def valid?(val)
     sanitized = sanitize(val).reverse
     check_digit = sanitized.pop
+    binding.pry
     (10 - (calculate_values(sanitized) % 10)) == check_digit.to_i
   end
   
